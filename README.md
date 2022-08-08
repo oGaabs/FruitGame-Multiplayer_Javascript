@@ -1,3 +1,5 @@
+[<div align=left><img alt="Exemplo de Multiplayer" src="https://user-images.githubusercontent.com/53992405/183334742-a0423e33-678f-4f85-b9eb-d45a82fd6340.png" height="300"/> </div>][telas]
+
 # FruitGame-Multiplayer_Javascript
 
 Um pequeno jogo multiplayer que terá um sistema de pontuação ao comer as frutinhas, um projetinho para aprender conceitos de Arquitetura de Software, Sockets e Designs Patterns.
@@ -22,4 +24,5 @@ This project is licensed under the [MIT License][license].
 [linkedin]: https://www.linkedin.com/in/gabriel-santana-silva-1205461a3/
 [email]: mailto:gabriel04.ok@gmail.com
 [discord]: https://discords.com/bio/p/punidc
+[telas]: https://user-images.githubusercontent.com/53992405/183334742-a0423e33-678f-4f85-b9eb-d45a82fd6340.png
 [license]: LICENSE
