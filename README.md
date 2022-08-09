@@ -1,4 +1,4 @@
-[<div align=left><img alt="Exemplo de Multiplayer" src="https://user-images.githubusercontent.com/53992405/183334742-a0423e33-678f-4f85-b9eb-d45a82fd6340.png" height="300"/> </div>][telas]
+[<div align=left><img alt="Exemplo de Multiplayer" src="https://user-images.githubusercontent.com/53992405/183553587-3caa1f90-ff9d-4062-bcad-d32e69786e19.png" height="300"/> </div>][telas]
 
 # FruitGame-Multiplayer_Javascript
 
@@ -24,5 +24,5 @@ This project is licensed under the [MIT License][license].
 [linkedin]: https://www.linkedin.com/in/gabriel-santana-silva-1205461a3/
 [email]: mailto:gabriel04.ok@gmail.com
 [discord]: https://discords.com/bio/p/punidc
-[telas]: https://user-images.githubusercontent.com/53992405/183334742-a0423e33-678f-4f85-b9eb-d45a82fd6340.png
+[telas]: https://user-images.githubusercontent.com/53992405/183553587-3caa1f90-ff9d-4062-bcad-d32e69786e19.png
 [license]: LICENSE
