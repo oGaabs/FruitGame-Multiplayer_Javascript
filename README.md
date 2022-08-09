@@ -2,7 +2,7 @@
 
 # FruitGame-Multiplayer_Javascript
 
-Um pequeno jogo multiplayer que terá um sistema de pontuação ao comer as frutinhas, um projetinho para aprender conceitos de Arquitetura de Software, Sockets e Designs Patterns.
+Um pequeno jogo multiplayer com sistema de pontuação ao comer as frutinhas, um projetinho para aprender conceitos de Arquitetura de Software, Sockets e Designs Patterns.
 
 ## Contributing
 
