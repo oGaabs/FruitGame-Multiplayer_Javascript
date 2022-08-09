@@ -4,8 +4,8 @@ import createGame from './public/game.js'
 import { Server } from 'socket.io'
 
 const app = express()
-const server = http.createServer(app)
-const sockets = new Server(server)
+const webServer = http.createServer(app)
+const sockets = new Server(webServer)
 
 app.use(express.static('public'))
 
@@ -13,16 +13,9 @@ const game = createGame()
 game.start()
 
 game.subscribe((command) => {
-    console.log(`> Emitting command: ${command.type}`)
+    //console.log(`> Emitting command: ${command.type}`)
     sockets.emit(command.type, command)
 })
-
-
-game.addFruit({ fruitId: 'fruit1', fruitX: 3, fruitY: 3 })
-game.addFruit({ fruitId: 'fruit2', fruitX: 3, fruitY: 5 })
-game.movePlayer({ playerId: 'player1', keyPressed: 'ArrowRight' })
-
-console.log(game.state)
 
 sockets.on('connection', (socket) => {
     const playerId = socket.id
@@ -30,7 +23,7 @@ sockets.on('connection', (socket) => {
 
     game.addPlayer({ playerId })
 
-    socket.emit('setup', game.state )
+    socket.emit('setup', game.state)
 
     socket.on('disconnect', () => {
         game.removePlayer({ playerId })
@@ -42,9 +35,12 @@ sockets.on('connection', (socket) => {
         command.type = 'move-player'
 
         game.movePlayer(command)
+        console.log(`> Emitting command: ${command.type}`)
     })
 })
 
-server.listen(3000, () => {
-    console.log('Server is running on port 3000')
+const PORT = process.env.PORT || 3000;
+
+webServer.listen(PORT, () => {
+    console.log(`Server is running on port: http://localhost:${PORT}`)
 })

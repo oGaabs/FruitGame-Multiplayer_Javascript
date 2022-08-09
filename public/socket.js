@@ -1,6 +1,6 @@
-import createKeyboardListener from "./keyboardListener.js"
 import createGame from "./game.js"
-import renderScreen from "./renderScreen.js"
+import createKeyboardListener from "./keyboardListener.js"
+import renderScreen, { setupScreen } from "./renderScreen.js"
 
 const game = createGame()
 const keyboardListener = createKeyboardListener()
@@ -12,7 +12,17 @@ socket.on('connect', () => {
     console.log(`Player connected on Client with id: ${playerId}`)
 
     const screen = document.getElementById('screen')
-    renderScreen(screen, game, requestAnimationFrame, playerId)
+    const scoreTable = document.getElementById('score')
+
+    setupScreen(screen, game)
+    renderScreen(screen, scoreTable, game, requestAnimationFrame, playerId)
+})
+
+socket.on('disconnect', () => {
+    keyboardListener.unsubscribeAll();
+    console.log('> Disconnected');
+    if (confirm("Você foi desconectado.\nPressione OK para tentar reconectar."))
+        location.reload();
 })
 
 socket.on('setup', (state) => {
@@ -41,11 +51,9 @@ socket.on('move-player', (command) => {
 })
 
 socket.on('add-fruit', (command) => {
-    console.log(`Receiving ${command.type} -> ${command.fruitId}`)
     game.addFruit(command)
 })
 
 socket.on('remove-fruit', (command) => {
-    console.log(`Receiving ${command.type} -> ${command.fruitId}`)
     game.removeFruit(command)
 })

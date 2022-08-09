@@ -3,8 +3,8 @@ export default function createGame() {
         players: {},
         fruits: {},
         screen: {
-            width: 15,
-            height: 15,
+            width: 20,
+            height: 20,
         }
     }
     const observers = []
@@ -30,20 +30,24 @@ export default function createGame() {
     }
 
     function addPlayer(command) {
+        const playerId = command.playerId
         const playerX = 'playerX' in command ? command.playerX : Math.floor(Math.random() * state.screen.width)
         const playerY = 'playerY' in command ? command.playerY : Math.floor(Math.random() * state.screen.height)
-        const playerId = command.playerId
+        const score = 0
 
         state.players[playerId] = {
+            id: playerId,
             x: playerX,
             y: playerY,
+            score
         }
 
         notifyAll({
             type: 'add-player',
-            playerId: playerId,
-            playerX: playerX,
-            playerY: playerY,
+            playerId,
+            playerX,
+            playerY,
+            score
         })
     }
 
@@ -54,7 +58,7 @@ export default function createGame() {
 
         notifyAll({
             type: 'remove-player',
-            playerId: playerId
+            playerId
         })
     }
 
@@ -70,9 +74,9 @@ export default function createGame() {
 
         notifyAll({
             type: 'add-fruit',
-            fruitId: fruitId,
-            fruitX: fruitX,
-            fruitY: fruitY
+            fruitId,
+            fruitX,
+            fruitY
         })
     }
 
@@ -83,7 +87,7 @@ export default function createGame() {
 
         notifyAll({
             type: 'remove-fruit',
-            fruitId: fruitId,
+            fruitId,
         })
     }
 
@@ -121,8 +125,8 @@ export default function createGame() {
             const fruit = state.fruits[fruitId]
 
             if (player.x === fruit.x && player.y === fruit.y) {
-                console.log(`game.checkForFruitCollision() -> ${playerId} collided with ${fruitId}`)
                 removeFruit({ fruitId })
+                player.score += 1
             }
         }
     }
