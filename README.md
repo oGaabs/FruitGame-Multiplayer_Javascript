@@ -1,4 +1,4 @@
-[<div align=left><img alt="Exemplo de Multiplayer" src="https://user-images.githubusercontent.com/53992405/183553699-acbe75ea-03f1-4a82-be3c-30bb42a70f6d.png" height="300" /> </div>][telas]
+[<div align=left><img alt="Exemplo de Multiplayer" src="https://user-images.githubusercontent.com/53992405/183553699-acbe75ea-03f1-4a82-be3c-30bb42a70f6d.png" height="280" width="800"/> </div>][telas]
 
 
 # FruitGame-Multiplayer_Javascript
